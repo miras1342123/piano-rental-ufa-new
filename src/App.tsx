@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Header from './components/layout/Header';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Hero from './components/sections/Hero';
-import StatsStrip from './components/sections/StatsStrip';
 import WhyRent from './components/sections/WhyRent';
 import PianoCatalog from './components/sections/PianoCatalog';
 import Pricing from './components/sections/Pricing';
@@ -66,7 +65,6 @@ function App() {
       <Header />
       <main>
         <Reveal y={18}><Hero /></Reveal>
-        <Reveal delay={40}><StatsStrip /></Reveal>
         <Reveal><WhyRent /></Reveal>
         <Reveal><PianoCatalog /></Reveal>
         <Reveal><Pricing /></Reveal>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Send, X, MessageCircle } from 'lucide-react';
+import { Send, X, MessageCircle, Phone } from 'lucide-react';
 import { contacts } from '../../data/contacts';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
@@ -51,14 +51,36 @@ export default function ManagerBubble() {
           <p className="mt-3 text-sm text-graphite/70 leading-relaxed">
             Подскажем, какая модель подойдёт именно вам — просто напишите нам.
           </p>
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {contacts.telegram && (
+              <a
+                href={contacts.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-shine w-full inline-flex items-center justify-center gap-2 bg-brass text-white text-sm font-medium rounded-full px-4 py-2.5 hover:bg-brass/95 transition-colors"
+              >
+                <Send size={16} />
+                Telegram
+              </a>
+            )}
+            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
+              <a
+                href={contacts.max}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 border border-graphite/10 bg-cream text-graphite text-sm font-medium rounded-full px-4 py-2.5 hover:border-brass/30 hover:text-brass transition-colors"
+              >
+                <MessageCircle size={16} />
+                MAX
+              </a>
+            )}
+          </div>
           <a
-            href={contacts.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-shine mt-4 w-full inline-flex items-center justify-center gap-2 bg-brass text-white text-sm font-medium rounded-full px-4 py-2.5 hover:bg-brass/95 transition-colors"
+            href={`tel:${contacts.phone}`}
+            className="mt-2 w-full inline-flex items-center justify-center gap-2 text-xs text-graphite/50 hover:text-brass transition-colors"
           >
-            <Send size={16} />
-            Написать в Telegram
+            <Phone size={14} />
+            Или позвонить: {contacts.phone}
           </a>
         </div>
       )}

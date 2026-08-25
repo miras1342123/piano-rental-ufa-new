@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useInView } from '../../hooks/useInView';
 import Button from '../ui/Button';
-import { Phone, Send } from 'lucide-react';
+import { Phone, Send, MessageCircle } from 'lucide-react';
 import { contacts } from '../../data/contacts';
 
 export default function ContactCTA() {
@@ -40,6 +40,17 @@ export default function ContactCTA() {
                 className="border-white/30 text-white hover:bg-white/10"
               >
                 Написать в Telegram
+              </Button>
+            )}
+            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
+              <Button
+                variant="outline"
+                size="lg"
+                icon={<MessageCircle size={20} />}
+                onClick={() => window.open(contacts.max, '_blank')}
+                className="border-white/30 text-white hover:bg-white/10"
+              >
+                Написать в MAX
               </Button>
             )}
           </div>

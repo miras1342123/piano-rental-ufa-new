@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, X, ChevronLeft, ChevronRight, MessageCircle, Phone, Check } from 'lucide-react';
+import { ArrowLeft, X, ChevronLeft, ChevronRight, MessageCircle, Phone, Check, Send } from 'lucide-react';
 import type { Piano } from '../../data/pianos';
 import { contacts } from '../../data/contacts';
 import Button from './Button';
@@ -225,15 +225,27 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
       {/* Закреплённая нижняя панель с действиями */}
       <div className="flex-shrink-0 flex flex-wrap gap-3 p-4 sm:p-5 border-t border-graphite/10 bg-cream">
         <div className="max-w-5xl mx-auto w-full flex flex-wrap gap-3">
-          <Button
-            variant="primary"
-            size="lg"
-            className="flex-1 min-w-[160px]"
-            icon={<MessageCircle size={18} />}
-            onClick={() => window.open(contacts.max, '_blank')}
-          >
-            Написать в MAX
-          </Button>
+          {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
+            <Button
+              variant="primary"
+              size="lg"
+              className="flex-1 min-w-[160px]"
+              icon={<MessageCircle size={18} />}
+              onClick={() => window.open(contacts.max, '_blank')}
+            >
+              Написать в MAX
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              size="lg"
+              className="flex-1 min-w-[160px]"
+              icon={<Send size={18} />}
+              onClick={() => window.open(contacts.telegram, '_blank')}
+            >
+              Написать в Telegram
+            </Button>
+          )}
           <Button
             variant="outline"
             size="lg"

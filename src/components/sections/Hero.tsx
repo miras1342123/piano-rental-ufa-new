@@ -5,8 +5,8 @@ import Button from '../ui/Button';
 import { contacts } from '../../data/contacts';
 
 const perks = [
-  'Yamaha и Casio',
-  'Аренда от 1 недели',
+  'Широкий ассортимент',
+  'Аренда на любой срок',
   'Самовывоз или доставка по Уфе',
   'Залог 2 000 ₽',
 ];
@@ -53,7 +53,7 @@ export default function Hero() {
               <span className="text-brass">в Уфе</span>
             </h1>
             <p className="text-lg sm:text-xl text-graphite/70 max-w-lg font-body">
-              Попробуйте инструмент перед покупкой.
+              Попробуйте инструмент перед покупкой
             </p>
           </div>
 
@@ -75,15 +75,33 @@ export default function Hero() {
             >
               Написать в Telegram
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              icon={<MessageCircle size={20} />}
-              onClick={() => window.open(contacts.max, '_blank')}
-            >
-              Написать в MAX
-            </Button>
+            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
+              <Button
+                variant="outline"
+                size="lg"
+                icon={<MessageCircle size={20} />}
+                onClick={() => window.open(contacts.max, '_blank')}
+              >
+                Написать в MAX
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                size="lg"
+                icon={<MessageCircle size={20} />}
+                onClick={() => (window.location.href = `tel:${contacts.phone}`)}
+              >
+                Позвонить
+              </Button>
+            )}
           </div>
+
+          <a
+            href={`tel:${contacts.phone}`}
+            className="inline-flex items-center text-sm text-graphite/55 hover:text-brass transition-colors reveal-item opacity-0"
+          >
+            Телефон: {contacts.phone}
+          </a>
 
           <div className="grid grid-cols-2 gap-3 reveal-item opacity-0">
             {perks.map((perk) => (

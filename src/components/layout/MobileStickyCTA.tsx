@@ -16,7 +16,7 @@ export default function MobileStickyCTA() {
         <Phone size={22} />
         <span className="text-xs mt-1">Позвонить</span>
       </a>
-      {contacts.max && (
+      {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
         <a
           href={contacts.max}
           target="_blank"

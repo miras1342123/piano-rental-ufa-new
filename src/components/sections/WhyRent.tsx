@@ -5,20 +5,20 @@ import SectionHeading from '../ui/SectionHeading';
 
 const pairs = [
   {
-    problem: 'Покупать пианино дорого, особенно если ребёнок только начинает.',
-    solution: 'Начните заниматься сразу — возьмите инструмент в аренду.',
+    problem: 'Ребёнок пошёл в музыкальную школу, но пока непонятно, надолго ли ему это увлечение.',
+    solution: 'Возьмите пианино в аренду и посмотрите, как ребёнок втянется в занятия. Если полюбит музыку — потом можно купить инструмент.',
   },
   {
-    problem: 'Непонятно, продолжит ли ребёнок или взрослый заниматься через пару месяцев.',
-    solution: 'Проверьте это без риска — аренда на любой удобный срок.',
+    problem: 'Давно хотите научиться играть или вернуться к занятиям, но не уверены, что будете заниматься регулярно.',
+    solution: 'Начните с аренды. Если занятия войдут в привычку — тогда уже решите, нужен ли свой инструмент.',
   },
   {
-    problem: 'Не знаете, какая модель подойдёт — Yamaha, Casio, механика полегче или потяжелее.',
-    solution: 'Попробуйте несколько моделей и выберите ту, что понравится.',
+    problem: 'Хотите купить пианино, но не понимаете, какая модель подойдёт именно вам.',
+    solution: 'Попробуйте разные модели вживую и выберите ту, на которой вам действительно комфортно играть.',
   },
   {
-    problem: 'Не знаете, точно ли вам нужен именно этот инструмент навсегда, или лучше сначала проверить.',
-    solution: 'Возьмите пианино в аренду на пробу — а решение о покупке примете уже осознанно.',
+    problem: 'Вы приехали в Уфу ненадолго и не хотите прерывать занятия.',
+    solution: 'Арендуйте пианино на нужный срок — не нужно покупать, перевозить или хранить инструмент после отъезда.',
   },
 ];
 
@@ -32,19 +32,18 @@ export default function WhyRent() {
         <SectionHeading
           title={
             <>
-              Зачем покупать, если можно сначала <span className="text-brass">арендовать?</span>
+              Когда стоит сначала <span className="text-brass">арендовать?</span>
             </>
           }
-          subtitle="Мы убрали все «но», из-за которых обычно откладывают занятия музыкой"
+          subtitle="Есть ситуации, когда лучше сначала попробовать инструмент, а уже потом принимать решение о покупке."
         />
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-10 lg:gap-y-14">
-          {/* Заголовки колонок — видно только на десктопе, на мобильном пары идут карточками */}
           <div className="hidden lg:flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-graphite/40">
-            <X size={16} /> Что обычно мешает
+            <X size={16} /> Когда лучше не спешить с покупкой
           </div>
           <div className="hidden lg:flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-brass">
-            <Check size={16} /> Как решает PianoRent
+            <Check size={16} /> Что даёт аренда
           </div>
 
           {pairs.map((pair, idx) => (
@@ -69,12 +68,32 @@ export default function WhyRent() {
                 <span className="flex-shrink-0 w-7 h-7 rounded-full bg-brass/15 text-brass flex items-center justify-center mt-0.5">
                   <Check size={14} />
                 </span>
-                <p className="text-base sm:text-lg text-graphite font-medium leading-relaxed">
-                  {pair.solution}
-                </p>
+                <p className="text-base sm:text-lg text-graphite font-medium leading-relaxed">{pair.solution}</p>
               </div>
             </div>
           ))}
+        </div>
+
+        <div
+          className={`mt-14 rounded-3xl bg-cream/80 p-6 sm:p-8 ring-1 ring-graphite/5 transition-all duration-700 ease-premium delay-200 ${
+            isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <h3 className="text-2xl sm:text-3xl font-heading font-bold text-graphite">Что вы получаете с арендой</h3>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              'Экономию денег — платите только за время использования',
+              'Свободу выбора — можно попробовать разные модели',
+              'Меньше забот — не нужно сразу покупать, хранить и продавать инструмент',
+              'Гибкость — согласуем нужный срок и при желании продлим аренду',
+              'Доставку и установку — при необходимости привезём, соберём и объясним',
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-2 text-sm text-graphite/70 leading-relaxed">
+                <Check size={17} className="mt-0.5 shrink-0 text-brass" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div
@@ -82,7 +101,7 @@ export default function WhyRent() {
             isInView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-heading font-light text-graphite/90 tracking-wide">
+          <p className="text-2xl sm:text-3xl lg:text-4xl font-heading font-light text-graphite/90 tracking-wide">
             Сначала попробуйте. <span className="font-bold text-brass">Потом решайте.</span>
           </p>
         </div>

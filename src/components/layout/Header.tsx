@@ -61,14 +61,25 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button
-              variant="primary"
-              size="sm"
-              icon={<MessageCircle size={16} />}
-              onClick={() => window.open(contacts.max, '_blank')}
-            >
-              Написать в MAX
-            </Button>
+            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
+              <Button
+                variant="primary"
+                size="sm"
+                icon={<MessageCircle size={16} />}
+                onClick={() => window.open(contacts.max, '_blank')}
+              >
+                Написать в MAX
+              </Button>
+            ) : (
+              <Button
+                variant="primary"
+                size="sm"
+                icon={<MessageCircle size={16} />}
+                onClick={() => (window.location.href = `tel:${contacts.phone}`)}
+              >
+                Позвонить
+              </Button>
+            )}
           </div>
 
           <button
@@ -97,18 +108,33 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <Button
-            variant="primary"
-            size="md"
-            icon={<MessageCircle size={18} />}
-            className="mt-4 w-full"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              window.open(contacts.max, '_blank');
-            }}
-          >
-            Написать в MAX
-          </Button>
+          {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
+            <Button
+              variant="primary"
+              size="md"
+              icon={<MessageCircle size={18} />}
+              className="mt-4 w-full"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.open(contacts.max, '_blank');
+              }}
+            >
+              Написать в MAX
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              size="md"
+              icon={<MessageCircle size={18} />}
+              className="mt-4 w-full"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.location.href = `tel:${contacts.phone}`;
+              }}
+            >
+              Позвонить
+            </Button>
+          )}
         </div>
       </div>
     </header>

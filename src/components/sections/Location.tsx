@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useInView } from '../../hooks/useInView';
 import { contacts } from '../../data/contacts';
 import SectionHeading from '../ui/SectionHeading';
-import { MapPin, Phone, Send } from 'lucide-react';
+import { MapPin, Phone, Send, MessageCircle } from 'lucide-react';
 
 export default function Location() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -79,6 +79,16 @@ export default function Location() {
                       className="px-4 py-2 rounded-full bg-graphite/5 text-graphite/70 hover:bg-brass hover:text-white transition-all duration-300 ease-premium text-sm font-medium"
                     >
                       WhatsApp
+                    </a>
+                  )}
+                  {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
+                    <a
+                      href={contacts.max}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-full bg-graphite/5 text-graphite/70 hover:bg-brass hover:text-white transition-all duration-300 ease-premium text-sm font-medium inline-flex items-center gap-1.5"
+                    >
+                      <MessageCircle size={14} /> MAX
                     </a>
                   )}
                 </div>
