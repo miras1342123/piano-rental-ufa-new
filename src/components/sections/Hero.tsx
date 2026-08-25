@@ -38,14 +38,22 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-cream overflow-hidden"
     >
-      {/* Декоративные градиентные пятна для глубины */}
+      {/* Декоративный фон: на мобильном вместо большой фотографии — лёгкая музыкальная анимация. */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="hero-mobile-ambient lg:hidden" aria-hidden="true">
+          <div className="hero-mobile-ambient-glow" />
+          <div className="hero-mobile-keys">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <span key={index} style={{ animationDelay: `${index * 90}ms` }} />
+            ))}
+          </div>
+        </div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-brass/10 rounded-full blur-3xl animate-float-slow" />
         <div className="absolute -bottom-32 -left-20 w-80 h-80 bg-graphite/5 rounded-full blur-3xl animate-float-slow-reverse" />
       </div>
 
       <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8 order-2 lg:order-1">
+        <div className="relative z-10 space-y-8 order-2 lg:order-1">
           <div className="space-y-4 reveal-item opacity-0">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight tracking-tight text-graphite">
               Аренда цифровых пианино
@@ -75,25 +83,18 @@ export default function Hero() {
             >
               Написать в Telegram
             </Button>
-            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
-              <Button
-                variant="outline"
-                size="lg"
-                icon={<MessageCircle size={20} />}
-                onClick={() => window.open(contacts.max, '_blank')}
-              >
-                Написать в MAX
-              </Button>
-            ) : (
-              <Button
-                variant="outline"
-                size="lg"
-                icon={<MessageCircle size={20} />}
-                onClick={() => (window.location.href = `tel:${contacts.phone}`)}
-              >
-                Позвонить
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="lg"
+              icon={<MessageCircle size={20} />}
+              disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
+              title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
+              onClick={() => {
+                if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
+              }}
+            >
+              Написать в MAX
+            </Button>
           </div>
 
           <a
@@ -113,7 +114,7 @@ export default function Hero() {
           </div>
         </div>
 
-                <div className="order-1 lg:order-2 flex w-full flex-col items-center justify-center gap-6 reveal-item opacity-0">
+                <div className="order-1 lg:order-2 hidden w-full flex-col items-center justify-center gap-6 reveal-item opacity-0 lg:flex">
           <div className="relative w-full max-w-lg">
             <div className="relative aspect-[4/3] bg-gradient-to-br from-graphite/10 to-brass/10 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-graphite/5">
               <img

@@ -61,25 +61,18 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:block">
-            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
-              <Button
-                variant="primary"
-                size="sm"
-                icon={<MessageCircle size={16} />}
-                onClick={() => window.open(contacts.max, '_blank')}
-              >
-                Написать в MAX
-              </Button>
-            ) : (
-              <Button
-                variant="primary"
-                size="sm"
-                icon={<MessageCircle size={16} />}
-                onClick={() => (window.location.href = `tel:${contacts.phone}`)}
-              >
-                Позвонить
-              </Button>
-            )}
+            <Button
+              variant="primary"
+              size="sm"
+              icon={<MessageCircle size={16} />}
+              disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
+              title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
+              onClick={() => {
+                if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
+              }}
+            >
+              Написать в MAX
+            </Button>
           </div>
 
           <button
@@ -108,33 +101,20 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? (
-            <Button
-              variant="primary"
-              size="md"
-              icon={<MessageCircle size={18} />}
-              className="mt-4 w-full"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                window.open(contacts.max, '_blank');
-              }}
-            >
-              Написать в MAX
-            </Button>
-          ) : (
-            <Button
-              variant="primary"
-              size="md"
-              icon={<MessageCircle size={18} />}
-              className="mt-4 w-full"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                window.location.href = `tel:${contacts.phone}`;
-              }}
-            >
-              Позвонить
-            </Button>
-          )}
+          <Button
+            variant="primary"
+            size="md"
+            icon={<MessageCircle size={18} />}
+            className="mt-4 w-full"
+            disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
+            title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
+            }}
+          >
+            Написать в MAX
+          </Button>
         </div>
       </div>
     </header>

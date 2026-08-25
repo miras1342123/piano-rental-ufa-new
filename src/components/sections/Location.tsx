@@ -81,16 +81,19 @@ export default function Location() {
                       WhatsApp
                     </a>
                   )}
-                  {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
-                    <a
-                      href={contacts.max}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-full bg-graphite/5 text-graphite/70 hover:bg-brass hover:text-white transition-all duration-300 ease-premium text-sm font-medium inline-flex items-center gap-1.5"
-                    >
-                      <MessageCircle size={14} /> MAX
-                    </a>
-                  )}
+                  <a
+                    href={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? undefined : contacts.max}
+                    target={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    aria-disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
+                    onClick={(event) => {
+                      if (contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) event.preventDefault();
+                    }}
+                    title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : 'Написать в MAX'}
+                    className={`px-4 py-2 rounded-full bg-graphite/5 text-graphite/70 transition-all duration-300 ease-premium text-sm font-medium inline-flex items-center gap-1.5 ${contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'opacity-50 cursor-not-allowed' : 'hover:bg-brass hover:text-white'}`}
+                  >
+                    <MessageCircle size={14} /> MAX
+                  </a>
                 </div>
               </div>
             </div>

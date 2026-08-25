@@ -63,17 +63,20 @@ export default function ManagerBubble() {
                 Telegram
               </a>
             )}
-            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
-              <a
-                href={contacts.max}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 border border-graphite/10 bg-cream text-graphite text-sm font-medium rounded-full px-4 py-2.5 hover:border-brass/30 hover:text-brass transition-colors"
-              >
-                <MessageCircle size={16} />
-                MAX
-              </a>
-            )}
+            <a
+              href={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? undefined : contacts.max}
+              target={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? undefined : '_blank'}
+              rel="noopener noreferrer"
+              aria-disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
+              onClick={(event) => {
+                if (contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) event.preventDefault();
+              }}
+              title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : 'Написать в MAX'}
+              className={`inline-flex items-center gap-2 ${contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              <MessageCircle size={18} />
+              MAX
+            </a>
           </div>
           <a
             href={`tel:${contacts.phone}`}

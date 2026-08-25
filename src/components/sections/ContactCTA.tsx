@@ -42,17 +42,19 @@ export default function ContactCTA() {
                 Написать в Telegram
               </Button>
             )}
-            {contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') && (
-              <Button
-                variant="outline"
-                size="lg"
-                icon={<MessageCircle size={20} />}
-                onClick={() => window.open(contacts.max, '_blank')}
-                className="border-white/30 text-white hover:bg-white/10"
-              >
-                Написать в MAX
-              </Button>
-            )}
+            <Button
+              variant="outline"
+              size="lg"
+              icon={<MessageCircle size={20} />}
+              disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
+              title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
+              onClick={() => {
+                if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
+              }}
+              className="border-white/30 text-white hover:bg-white/10 disabled:opacity-50"
+            >
+              Написать в MAX
+            </Button>
           </div>
         </div>
       </div>
