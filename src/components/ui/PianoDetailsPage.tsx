@@ -97,7 +97,7 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
             <img
               key={gallery[activeImage]}
               src={gallery[activeImage]}
-              alt={name}
+              alt={`Цифровое пианино ${name} в Уфе`}
               className="max-w-full w-auto h-auto object-contain"
               style={{ maxHeight: '70vh', animation: 'fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
               onError={handleImgError}
@@ -148,7 +148,7 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
                     i === activeImage ? 'ring-brass' : 'ring-transparent opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <img src={src} alt="" className="w-full h-full object-cover" />
+                  <img src={src} alt={`${name} — фото ${i + 1}`} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>

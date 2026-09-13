@@ -73,7 +73,7 @@ export default function PianoCard({ piano, featured = false }: PianoCardProps) {
         <img
           key={gallery ? gallery[hoverImage] : image}
           src={gallery ? gallery[hoverImage] : image}
-          alt={name}
+          alt={`Цифровое пианино ${name} в аренду в Уфе`}
           className="w-full h-full object-cover md:object-contain p-0 md:p-4 transition-transform duration-700 ease-premium group-hover:scale-[1.03] md:group-hover:scale-[1.04]"
           style={{ animation: 'cardFade 0.3s ease-out' }}
           onError={handleImageError}

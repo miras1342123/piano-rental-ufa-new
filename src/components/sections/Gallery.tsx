@@ -11,12 +11,12 @@ interface GalleryPhoto {
 }
 
 const photos: GalleryPhoto[] = [
-  { src: '/images/Yamaha%20p35b(4).jpg', alt: 'Yamaha P-35B крупным планом', tall: true },
-  { src: '/images/Casio%20cdp%20s110bk(3).jpg', alt: 'Casio CDP-S110 чёрный' },
-  { src: '/images/Casio%20cdp%20s110we(2).jpg', alt: 'Casio CDP-S110 белый' },
-  { src: '/images/stand.jpg', alt: 'Складная стойка для пианино' },
-  { src: '/images/Yamaha%20p45b.jpg', alt: 'Yamaha P-45B', tall: true },
-  { src: '/images/Casio%20cdp%20s110bk(5).jpg', alt: 'Casio CDP-S110 в интерьере' },
+  { src: '/images/Yamaha%20p35b(4).jpg', alt: 'Цифровое пианино Yamaha P-35B крупным планом в Уфе', tall: true },
+  { src: '/images/Casio%20cdp%20s110bk(3).jpg', alt: 'Цифровое пианино Casio CDP-S110 чёрного цвета в аренду в Уфе' },
+  { src: '/images/Casio%20cdp%20s110we(2).jpg', alt: 'Цифровое пианино Casio CDP-S110 белого цвета в аренду в Уфе' },
+  { src: '/images/stand.jpg', alt: 'Складная стойка для цифрового пианино в комплекте аренды' },
+  { src: '/images/Yamaha%20p45b.jpg', alt: 'Цифровое пианино Yamaha P-45B в аренду в Уфе', tall: true },
+  { src: '/images/Casio%20cdp%20s110bk(5).jpg', alt: 'Цифровое пианино Casio CDP-S110 в интерьере — аренда в Уфе' },
 ];
 
 export default function Gallery() {

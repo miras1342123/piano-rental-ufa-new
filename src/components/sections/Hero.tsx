@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Send, CheckCircle, MessageCircle } from 'lucide-react';
+import { Send, CheckCircle, MessageCircle, Keyboard } from 'lucide-react';
 import PianoMagic from '../ui/PianoMagic';
 import Button from '../ui/Button';
 import { contacts } from '../../data/contacts';
@@ -119,7 +119,7 @@ export default function Hero() {
             <div className="relative aspect-[4/3] bg-gradient-to-br from-graphite/10 to-brass/10 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-graphite/5">
               <img
                 src="/images/Yamaha%20p35b(5).jpg"
-                alt="Цифровое пианино"
+                alt="Цифровое пианино Yamaha в аренду в Уфе"
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
@@ -138,7 +138,7 @@ export default function Hero() {
             <div className="hidden sm:block absolute -bottom-8 -left-8 w-32 h-24 rounded-2xl overflow-hidden shadow-xl ring-4 ring-cream animate-float-slow-reverse">
               <img
                 src="/images/Casio%20cdp%20s110we.jpg"
-                alt="Casio CDP-S110"
+                alt="Цифровое пианино Casio CDP-S110 в аренду в Уфе"
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
@@ -147,14 +147,13 @@ export default function Hero() {
             </div>
 
             {/* Плавающая карточка-бейдж — живой акцент и доп. доверие */}
-            <div className="absolute -top-5 -right-4 sm:-right-8 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 animate-float-slow ring-1 ring-graphite/5">
-              <div className="w-9 h-9 rounded-full bg-brass/15 flex items-center justify-center text-brass font-heading font-bold text-sm">
-                88
+            <div className="absolute -top-5 -right-4 sm:-right-8 max-w-[13rem] bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3 animate-float-slow ring-1 ring-graphite/5">
+              <div className="w-9 h-9 rounded-full bg-brass/15 flex items-center justify-center text-brass flex-shrink-0">
+                <Keyboard size={18} />
               </div>
-              <div className="leading-tight">
-                <p className="text-xs font-semibold text-graphite">полноразмерных</p>
-                <p className="text-xs text-graphite/50">клавиш с молоточками</p>
-              </div>
+              <p className="text-xs font-semibold text-graphite leading-tight">
+                Полноразмерная молоточковая клавиатура
+              </p>
             </div>
           </div>
 
