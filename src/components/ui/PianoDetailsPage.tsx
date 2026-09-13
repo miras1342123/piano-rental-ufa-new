@@ -230,11 +230,9 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
             size="lg"
             className="flex-1 min-w-[160px]"
             icon={<MessageCircle size={18} />}
-            disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
-            title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
-            onClick={() => {
-              if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
-            }}
+            href={contacts.max}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Написать в MAX
           </Button>
@@ -242,7 +240,7 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
             variant="outline"
             size="lg"
             icon={<Phone size={18} />}
-            onClick={() => (window.location.href = `tel:${contacts.phone}`)}
+            href={`tel:${contacts.phone}`}
           >
             Позвонить
           </Button>

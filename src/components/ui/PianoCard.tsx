@@ -131,7 +131,9 @@ export default function PianoCard({ piano, featured = false }: PianoCardProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => window.open(contacts.max && !contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? contacts.max : contacts.telegram, '_blank')}
+            href={contacts.max}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Написать нам
           </Button>

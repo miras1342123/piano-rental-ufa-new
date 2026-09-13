@@ -17,15 +17,11 @@ export default function MobileStickyCTA() {
         <span className="text-xs mt-1">Позвонить</span>
       </a>
       <a
-        href={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? undefined : contacts.max}
-        target={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? undefined : '_blank'}
+        href={contacts.max}
+        target="_blank"
         rel="noopener noreferrer"
-        aria-disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
-        title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : 'Написать в MAX'}
-        onClick={(event) => {
-          if (contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) event.preventDefault();
-        }}
-        className={`flex flex-col items-center transition-colors ${contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'text-graphite/40' : 'text-graphite/70 hover:text-brass'}`}
+        title="Написать в MAX"
+        className="flex flex-col items-center text-graphite/70 hover:text-brass transition-colors"
       >
         <MessageCircle size={22} />
         <span className="text-xs mt-1">MAX</span>

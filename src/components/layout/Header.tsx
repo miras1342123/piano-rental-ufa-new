@@ -65,11 +65,9 @@ export default function Header() {
               variant="primary"
               size="sm"
               icon={<MessageCircle size={16} />}
-              disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
-              title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
-              onClick={() => {
-                if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
-              }}
+              href={contacts.max}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Написать в MAX
             </Button>
@@ -106,11 +104,11 @@ export default function Header() {
             size="md"
             icon={<MessageCircle size={18} />}
             className="mt-4 w-full"
-            disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
-            title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
+            href={contacts.max}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => {
               setIsMobileMenuOpen(false);
-              if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
             }}
           >
             Написать в MAX

@@ -11,7 +11,7 @@ export default function Contract() {
   const handleOpenContract = () => {
     // Если файл существует, открываем в новой вкладке, иначе показываем уведомление
     if (contract.pdfUrl) {
-      window.open(contract.pdfUrl, '_blank');
+      window.open(contract.pdfUrl, '_blank', 'noopener,noreferrer');
     } else {
       alert('Договор будет доступен позже.');
     }

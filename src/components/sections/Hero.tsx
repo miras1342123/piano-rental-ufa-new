@@ -79,7 +79,9 @@ export default function Hero() {
               variant="outline"
               size="lg"
               icon={<Send size={20} />}
-              onClick={() => window.open(contacts.telegram, '_blank')}
+              href={contacts.telegram}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Написать в Telegram
             </Button>
@@ -87,11 +89,9 @@ export default function Hero() {
               variant="outline"
               size="lg"
               icon={<MessageCircle size={20} />}
-              disabled={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')}
-              title={contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK') ? 'Ссылка на MAX будет добавлена позже' : undefined}
-              onClick={() => {
-                if (!contacts.max.includes('REPLACE_WITH_YOUR_MAX_LINK')) window.open(contacts.max, '_blank');
-              }}
+              href={contacts.max}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Написать в MAX
             </Button>
