@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://piano-rental-ufa-new.vercel.app/sitemap.xml
