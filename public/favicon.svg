@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Piano Rent Ufa">
+  <rect width="64" height="64" rx="16" fill="#1a1a1a"/>
+  <rect x="12" y="17" width="40" height="30" rx="4" fill="#faf7f2"/>
+  <path d="M12 29h40" stroke="#1a1a1a" stroke-width="2"/>
+  <path d="M20 17v18M28 17v18M36 17v18M44 17v18" stroke="#1a1a1a" stroke-width="1.6"/>
+  <path d="M18 17v7M26 17v7M38 17v7M46 17v7" stroke="#b8915a" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M16 47h32" stroke="#b8915a" stroke-width="3" stroke-linecap="round"/>
+</svg>

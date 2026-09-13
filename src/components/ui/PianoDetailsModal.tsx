@@ -191,9 +191,7 @@ export default function PianoDetailsModal({ piano, isOpen, onClose }: Props) {
             size="lg"
             className="flex-1 min-w-[160px]"
             icon={<Send size={18} />}
-            href={contacts.telegram}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => window.open(contacts.telegram, '_blank')}
           >
             Написать в Telegram
           </Button>
@@ -201,7 +199,7 @@ export default function PianoDetailsModal({ piano, isOpen, onClose }: Props) {
             variant="outline"
             size="lg"
             icon={<Phone size={18} />}
-            href={`tel:${contacts.phone}`}
+            onClick={() => (window.location.href = `tel:${contacts.phone}`)}
           >
             Позвонить
           </Button>

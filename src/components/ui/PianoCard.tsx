@@ -131,9 +131,7 @@ export default function PianoCard({ piano, featured = false }: PianoCardProps) {
           <Button
             variant="outline"
             size="sm"
-            href={contacts.max}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => window.open(contacts.max, '_blank', 'noopener,noreferrer')}
           >
             Написать нам
           </Button>

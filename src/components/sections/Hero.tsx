@@ -79,9 +79,7 @@ export default function Hero() {
               variant="outline"
               size="lg"
               icon={<Send size={20} />}
-              href={contacts.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => window.open(contacts.telegram, '_blank', 'noopener,noreferrer')}
             >
               Написать в Telegram
             </Button>
@@ -89,9 +87,7 @@ export default function Hero() {
               variant="outline"
               size="lg"
               icon={<MessageCircle size={20} />}
-              href={contacts.max}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => window.open(contacts.max, '_blank', 'noopener,noreferrer')}
             >
               Написать в MAX
             </Button>

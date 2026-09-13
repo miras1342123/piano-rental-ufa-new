@@ -1,33 +1,20 @@
 import React from 'react';
 
-type CommonButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
   children: React.ReactNode;
-  className?: string;
-};
+}
 
-type ButtonProps =
-  | (CommonButtonProps & {
-      href: string;
-      target?: React.HTMLAttributeAnchorTarget;
-      rel?: string;
-      onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-    } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target' | 'rel' | 'onClick' | 'children' | 'className'>)
-  | (CommonButtonProps & {
-      href?: never;
-    } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'className'>);
-
-export default function Button(props: ButtonProps) {
-  const {
-    variant = 'primary',
-    size = 'md',
-    icon,
-    children,
-    className = '',
-  } = props;
-
+export default function Button({
+  variant = 'primary',
+  size = 'md',
+  icon,
+  children,
+  className = '',
+  ...props
+}: ButtonProps) {
   const base =
     'inline-flex items-center justify-center gap-2 font-medium rounded-full whitespace-nowrap transition-all duration-300 ease-premium focus:outline-none focus:ring-2 focus:ring-brass/50 disabled:opacity-50';
 
@@ -46,30 +33,11 @@ export default function Button(props: ButtonProps) {
     lg: 'px-8 py-3.5 text-base',
   };
 
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
-
-  if ('href' in props && props.href) {
-    const { href, target, rel, onClick, ...anchorProps } = props;
-    return (
-      <a
-        href={href}
-        target={target}
-        rel={rel}
-        onClick={onClick}
-        className={classes}
-        {...anchorProps}
-      >
-        {icon && <span className="flex-shrink-0">{icon}</span>}
-        {children}
-      </a>
-    );
-  }
-
-  const { href: _href, ...buttonProps } = props as CommonButtonProps &
-    React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: never };
-
   return (
-    <button className={classes} {...buttonProps}>
+    <button
+      className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
+      {...props}
+    >
       {icon && <span className="flex-shrink-0">{icon}</span>}
       {children}
     </button>

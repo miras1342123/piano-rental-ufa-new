@@ -27,7 +27,7 @@ export default function ContactCTA() {
               variant="primary"
               size="lg"
               icon={<Phone size={20} />}
-              href={`tel:${contacts.phone}`}
+              onClick={() => window.location.href = `tel:${contacts.phone}`}
             >
               Позвонить
             </Button>
@@ -36,9 +36,7 @@ export default function ContactCTA() {
                 variant="outline"
                 size="lg"
                 icon={<Send size={20} />}
-                href={contacts.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => window.open(contacts.telegram, '_blank', 'noopener,noreferrer')}
                 className="border-white/30 text-white hover:bg-white/10"
               >
                 Написать в Telegram
@@ -48,9 +46,7 @@ export default function ContactCTA() {
               variant="outline"
               size="lg"
               icon={<MessageCircle size={20} />}
-              href={contacts.max}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => window.open(contacts.max, '_blank', 'noopener,noreferrer')}
               className="border-white/30 text-white hover:bg-white/10"
             >
               Написать в MAX

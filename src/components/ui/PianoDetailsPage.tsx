@@ -230,9 +230,7 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
             size="lg"
             className="flex-1 min-w-[160px]"
             icon={<MessageCircle size={18} />}
-            href={contacts.max}
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => window.open(contacts.max, '_blank', 'noopener,noreferrer')}
           >
             Написать в MAX
           </Button>
@@ -240,7 +238,7 @@ export default function PianoDetailsPage({ piano, onClose }: Props) {
             variant="outline"
             size="lg"
             icon={<Phone size={18} />}
-            href={`tel:${contacts.phone}`}
+            onClick={() => (window.location.href = `tel:${contacts.phone}`)}
           >
             Позвонить
           </Button>

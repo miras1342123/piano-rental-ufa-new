@@ -1,0 +1,15 @@
+{
+  "name": "Аренда цифровых пианино в Уфе",
+  "short_name": "Piano Rent Ufa",
+  "description": "Аренда цифровых пианино Yamaha и Casio в Уфе на любой срок.",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {"src":"/favicon-32x32.png","sizes":"32x32","type":"image/png","purpose":"any"},
+    {"src":"/apple-touch-icon.png","sizes":"180x180","type":"image/png","purpose":"any"}
+  ]
+}

@@ -65,9 +65,7 @@ export default function Header() {
               variant="primary"
               size="sm"
               icon={<MessageCircle size={16} />}
-              href={contacts.max}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => window.open(contacts.max, '_blank', 'noopener,noreferrer')}
             >
               Написать в MAX
             </Button>
@@ -104,11 +102,9 @@ export default function Header() {
             size="md"
             icon={<MessageCircle size={18} />}
             className="mt-4 w-full"
-            href={contacts.max}
-            target="_blank"
-            rel="noopener noreferrer"
             onClick={() => {
               setIsMobileMenuOpen(false);
+              window.open(contacts.max, '_blank', 'noopener,noreferrer');
             }}
           >
             Написать в MAX
